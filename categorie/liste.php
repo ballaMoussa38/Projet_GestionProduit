@@ -25,7 +25,7 @@ $resultat = $sql->fetchAll(PDO::FETCH_ASSOC);
         <thead>
             <th>id</th>
             <th>libelle</th>
-            <th>Action</th>
+            <th colspan="2">Action</th>
         </thead>
         <?php foreach ($resultat as $categorie) {
         ?>
@@ -34,6 +34,7 @@ $resultat = $sql->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $categorie["id"]; ?></td>
                     <td><?php echo $categorie["libelle"]; ?></td>
                     <td><a href="delete.php?id=<?= $categorie["id"]; ?> ">Delete</a></td>
+                    <td><a href="modifyCategorie.php?id=<?php echo $categorie["id"]; ?>">Editer</a></td>
                 </tr>
             <?php } ?>
             </tbody>

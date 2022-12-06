@@ -8,6 +8,9 @@ if (!empty($_POST["libelle"])){
     $sql = $dbConnexion->prepare("INSERT INTO categories(libelle) VALUES(?)");
     $sql->bindParam(1, $libelle);
     $sql->execute();
+    if ($sql) {
+        header('location: liste.php');
+    }
 }else{
     echo "Le champ est vide";
 }

@@ -38,7 +38,7 @@ if(!empty($_POST['libelle'])){
     <form action="" method="POST">
         <div>
             <label for="">libelle</label>
-            <input type="text" name="libelle" value="">
+            <input type="text" name="libelle">
         </div>
         <button type="submit">Envoyer</button>
     </form>

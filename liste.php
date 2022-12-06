@@ -34,7 +34,7 @@ $profils = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $value['id']; ?></td>
                         <td><?php echo $value['libelle']; ?></td>
                         <td><a onclick="return confirm('Vous voulez vraiment supprimer ?')" href="deleteprofile.php?id=<?php echo $value['id']; ?>">Supprimer</a></td>
-                        <td>Modifier</td>
+                        <td><a href="editProfil.php?id=<?php echo $value['id']; ?>">Modifier</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
