@@ -1,7 +1,7 @@
 <?php
 require_once('../config.php');
 if (!empty($_POST)) {
-    var_dump($_POST);
+    // var_dump($_POST);
     extract($_POST);
     $sql = $dbConnexion->prepare('INSERT INTO users(nom,prenom,adresse,date_de_naissance,telephone,profil_id,mail,mot_de_passe) VALUES((?),(?),(?),(?),(?),(?),(?),(?))');
     $sql->bindParam(1, $nom);
@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     $sql->bindParam(7, $mail);
     $sql->bindParam(8, $mot_de_passe);
     $userProfile = $sql->execute();
-    var_dump($userProfile);
+    // var_dump($userProfile);
 } else {
     echo "Le champ est vide";
 }
@@ -23,7 +23,7 @@ $sql = $dbConnexion->prepare('select * from profils');
 $sql->execute();
 // var_dump($sql->fetchAll());
 $profils = $sql->fetchAll(PDO::FETCH_ASSOC);
-var_dump($profils);
+// var_dump($profils);
 
 ?>
 
@@ -59,10 +59,10 @@ var_dump($profils);
             <input type="text" name="telephone" value="">
         </div>
         <div>
-            <label for="pet-select">Choose a pet:</label>
+            <label for="pet-select">Profil</label>
 
             <select name="profil_id" id="pet-select">
-                <option value="">--Please choose an option--</option>
+                <option value="">-- SVP choisir un profil--</option>
                 <?php foreach ($profils as $profile) { ?>
                 <option value="<?= $profile["id"]; ?>"><?= $profile["libelle"]; ?></option>
                 <?php } ?>
